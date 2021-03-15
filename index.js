@@ -24,7 +24,7 @@ body {
 
 app.use((_, res) => {
   /*res.sendFile('./index.html',{ root: process.cwd()}, (err) => console.log(err))*/
-  res.sendFile(path.join(__dirname + '/views/index.html'));
+  res.sendFile(path.join(__dirname + '/views/index.html'), (err) => console.log(err));
 })
 
 module.exports = (req, res) => {
