@@ -13,5 +13,5 @@
     "dev": "npx vc dev",
     "start": "vc dev"
   },
-  "version": "dev"
+  "version": "1.0.0"
 }
