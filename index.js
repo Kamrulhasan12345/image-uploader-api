@@ -3,6 +3,8 @@ const { App } = require('@tinyhttp/app')
 
 const app = new App()
 
+const path = require('path');
+
 /*import html from 'index.html'*/
 
 /*const html = `
@@ -22,7 +24,7 @@ body {
 
 app.use((_, res) => {
   /*res.sendFile('./index.html',{ root: process.cwd()}, (err) => console.log(err))*/
-  res.send(process.cwd())
+  res.sendFile(path.join(__dirname + '/index.html'));
 })
 
 module.exports = (req, res) => {
