@@ -3,28 +3,35 @@ const { App } = require('@tinyhttp/app')
 
 const app = new App()
 
+const multer = require('multer')
+
 const path = require('path');
 
-/*import html from 'index.html'*/
-
-/*const html = `
-<style>
-body {
-  margin: 0;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-}
-</style>
-<h1>Hello from Serverless!</h1>
-<p>This is a <a href="https://github.com/talentlessguy/tinyhttp">tinyhttp</a> serverless app deployed on <a href="https://vercel.com">Vercel</a>.</p>
-`*/
+var storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, 'uploads')
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.fieldname + '-' + Date.now())
+  }
+})
+ 
+var upload = multer({ storage: storage })
 
 app.use((_, res) => {
   /*res.sendFile('./index.html',{ root: process.cwd()}, (err) => console.log(err))*/
   res.sendFile(path.join(__dirname + '/views/index.html'), (err) => console.log(err));
+})
+
+app.post('/uploadfile', upload.single('myFile'), (req, res, next) => {
+  const file = req.file
+  if (!file) {
+    const error = new Error('Please upload a file')
+    error.httpStatusCode = 400
+    return next(error)
+  }
+    res.send(file)
+  
 })
 
 module.exports = (req, res) => {
