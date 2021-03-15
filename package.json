@@ -2,7 +2,7 @@
   "name": "serverless",
   "private": true,
   "dependencies": {
-    "@tinyhttp/app": "latest"
+    "@tinyhttp/app": "^1.2.17"
   },
   "scripts": {
     "deploy": "vc --prod",
