@@ -22,7 +22,7 @@ body {
 
 app.use((_, res) => {
   /*res.sendFile('./index.html',{ root: process.cwd()}, (err) => console.log(err))*/
-  res.send(html)
+  res.send(process.cwd())
 })
 
 module.exports = (req, res) => {
