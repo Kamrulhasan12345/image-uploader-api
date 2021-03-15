@@ -3,7 +3,9 @@ const { App } = require('@tinyhttp/app')
 
 const app = new App()
 
-const html = `
+import html from 'index.html'
+
+/*const html = `
 <style>
 body {
   margin: 0;
@@ -16,10 +18,11 @@ body {
 </style>
 <h1>Hello from Serverless!</h1>
 <p>This is a <a href="https://github.com/talentlessguy/tinyhttp">tinyhttp</a> serverless app deployed on <a href="https://vercel.com">Vercel</a>.</p>
-`
+`*/
 
 app.use((_, res) => {
-  res.sendFile('./index.html',{ root: process.cwd()}, (err) => console.log(err))
+  /*res.sendFile('./index.html',{ root: process.cwd()}, (err) => console.log(err))*/
+  res.send(html)
 })
 
 module.exports = (req, res) => {
