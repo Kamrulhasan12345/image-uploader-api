@@ -2,11 +2,16 @@
   "name": "serverless",
   "private": true,
   "dependencies": {
-    "@tinyhttp/app": "latest"
+    "@tinyhttp/app": "latest",
+    "es-mime-types": "^0.0.16",
+    "mime-types": "^2.1.29",
+    "multer": "^1.4.2",
+    "pnpm": "^5.18.7"
   },
   "scripts": {
     "deploy": "vc --prod",
-    "dev": "vc dev",
+    "dev": "npx vc dev",
     "start": "vc dev"
-  }
+  },
+  "version": "dev"
 }
