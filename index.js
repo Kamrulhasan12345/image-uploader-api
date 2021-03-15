@@ -19,7 +19,7 @@ body {
 `
 
 app.use((_, res) => {
-  res.send(html)
+  res.sendFile(__dirname + '/index.html');
 })
 
 module.exports = (req, res) => {
