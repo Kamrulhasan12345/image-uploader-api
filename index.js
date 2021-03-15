@@ -3,7 +3,7 @@ const { App } = require('@tinyhttp/app')
 
 const app = new App()
 
-import html from 'index.html'
+/*import html from 'index.html'*/
 
 /*const html = `
 <style>
